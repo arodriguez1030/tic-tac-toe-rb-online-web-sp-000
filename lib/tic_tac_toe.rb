@@ -1,4 +1,4 @@
-WIN_COMBINATIONS = [
+gWIN_COMBINATIONS = [
   [0, 1, 2], # top row
   [3, 4, 5], # middle row
   [6, 7, 8], # bottom row
@@ -26,7 +26,11 @@ def move (board, index, value)
 end
 
 def position_taken?(board, location)
+<<<<<<< HEAD
   board[location] != " "
+=======
+  board[location] != " " && board[location] != ""
+>>>>>>> 8b6aaa621099f4ecea9ca0b8a04e24cc340ab404
 end
 
 def valid_move?(board, index)
@@ -56,7 +60,12 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
+<<<<<<< HEAD
     move(board, index, current_player(board))
+=======
+    value = current_player(board)
+    move(board, index, value)
+>>>>>>> 8b6aaa621099f4ecea9ca0b8a04e24cc340ab404
     display_board(board)
   else
     turn(board)
@@ -68,10 +77,14 @@ def won?(board)
     board_location1 = win_combination[0]
     board_location2 = win_combination[1]
     board_location3 = win_combination[2]
+<<<<<<< HEAD
     board[board_location1] == board[board_location2] &&
     board[board_location2] == board[board_location3] &&
     position_taken?(board, board_location1) 
     # board[board_location1] != " "
+=======
+    board[board_location1] == board[board_location2] && board[board_location2] == board[board_location3] && board[board_location1] != " "
+>>>>>>> 8b6aaa621099f4ecea9ca0b8a04e24cc340ab404
   end
 end
 
@@ -97,10 +110,17 @@ end
 end
 
 def play(board)
+<<<<<<< HEAD
  until over?(board)
  turn(board)
  end
  if won?(board)
+=======
+ until over?(board) == true
+ turn(board)
+ end
+ if won?(board) ==true
+>>>>>>> 8b6aaa621099f4ecea9ca0b8a04e24cc340ab404
    puts "Congratulations #{winner(board)}!"
  else 
    puts "Cat's Game!"
